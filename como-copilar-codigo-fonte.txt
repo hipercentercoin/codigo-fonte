@@ -1,0 +1,37 @@
+##How do I compile a daemon for Ubuntu Server 18.04? (Scrypt PoW/PoS)
+##applies to Scrypt PoW/PoS
+##branch 1.2.5.2
+
+##Use the following instructions to compile a daemon for Ubuntu Server 18.04.
+
+##Update your Ubuntu machine.
+
+sudo apt-get update
+sudo apt-get upgrade
+
+##Install the required dependencies.
+
+sudo apt-get install build-essential libboost-filesystem-dev libboost-program-options-dev libboost-thread-dev libdb-dev libdb++-dev libminiupnpc-dev libssl1.0-dev
+
+##Create a directory for the source code.
+
+cd ~/
+mkdir source_code
+cd source_code
+
+##Download the source code from Github
+
+wget "https://github.com/hipercentercoin/codigo-fonte/raw/master/hipercentercoin-source.tar.gz" -O hipercentercoin-source.tar.gz
+
+##Extract the tar file.
+
+tar -xzvf hipercentercoin-source.tar.gz
+
+##Execute the following commands to compile the daemon.
+
+cd src/
+make -f makefile.unix RELEASE=1
+
+##The compiling will take about 60 minutes depending on your system hardware.
+
+##Your compiled daemon named examplecoind can be found in the folder “src” when compiling is finished.
